@@ -1,13 +1,31 @@
-import React from 'react';
-import './App.css';
+import React, { useState } from "react"
 
 function App() {
-  console.log('anything')
+  const value = useState('Yes')
+  console.log(value)
+
   return (
-    <div className="App">
-      <h1>test</h1>
+    <div>
+      <h1>Is state important to know? {value}</h1>
     </div>
-  );
+  )
 }
 
-export default App;
+// class App extends React.Component {
+//     constructor() {
+//         super()
+//         this.state = {
+//             answer: "Yes"
+//         }
+//     }
+
+//     render() {
+//         return (
+//             <div>
+//                 <h1>Is state important to know? {this.state.answer}</h1>
+//             </div>
+//         )
+//     }
+// }
+
+export default App
