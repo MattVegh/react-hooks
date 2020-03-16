@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import AddressBook from './AddressBook'
 
 function App() {
   const [answer, setAnswer] = useState('Yes')
@@ -20,6 +21,7 @@ function App() {
       <h1>{count}</h1>
       <button onClick={() => setCount(count+1)}>Add!</button>
       <button onClick={reduce}>Reduce!</button>
+      <AddressBook />
     </div>
   )
 }
