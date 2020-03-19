@@ -21,6 +21,8 @@ function AddressBook() {
         setContactsData(prevContacts => [...prevContacts, inputData])
     }
     
+    const contacts = contactsData.map(contact => <h2>{contact.firstName} {contact.lastName}</h2>)
+
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -39,7 +41,7 @@ function AddressBook() {
                 <br />
                 <button>Add contact</button>
             </form>
-            {/*{contacts}*/}
+            {contacts}
         </>
     )
 }
