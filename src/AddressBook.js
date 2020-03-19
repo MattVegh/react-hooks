@@ -21,7 +21,7 @@ function AddressBook() {
         setContactsData(prevContacts => [...prevContacts, inputData])
     }
     
-    const contacts = contactsData.map(contact => <h2>{contact.firstName} {contact.lastName}</h2>)
+    const contacts = contactsData.map(contact => <h2 key={contact.firstName + contact.lastName}>{contact.firstName} {contact.lastName}</h2>)
 
     return (
         <>
