@@ -17,10 +17,10 @@ function AddressBook() {
     
     function handleSubmit(event) {
         // add inputData to the contactsData array
+        event.preventDefault()
+        setContactsData(prevContacts => [...prevContacts, inputData])
     }
     
-    
-    console.log(inputData)
     return (
         <>
             <form onSubmit={handleSubmit}>
