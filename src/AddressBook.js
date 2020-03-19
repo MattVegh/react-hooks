@@ -27,6 +27,12 @@ function AddressBook() {
     
     const contacts = contactsData.map(contact => <h2 key={contact.firstName + contact.lastName}>{contact.firstName} {contact.lastName}</h2>)
 
+    function handleClear(event) {
+        event.preventDefault()
+        setContactsData([])
+    }
+
+    console.log(contactsData)
     return (
         <>
             <form onSubmit={handleSubmit}>
@@ -45,6 +51,7 @@ function AddressBook() {
                 <br />
                 <button>Add contact</button>
             </form>
+            <button onClick={handleClear}>Clear Contacts</button>
             {contacts}
         </>
     )
