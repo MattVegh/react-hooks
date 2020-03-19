@@ -19,6 +19,7 @@ function AddressBook() {
         // add inputData to the contactsData array
     }
     
+    
     console.log(inputData)
     return (
         <>
