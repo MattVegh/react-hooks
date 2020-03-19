@@ -19,6 +19,10 @@ function AddressBook() {
         // add inputData to the contactsData array
         event.preventDefault()
         setContactsData(prevContacts => [...prevContacts, inputData])
+        setInputData({
+            firstName: '',
+            lastName: ''
+        })
     }
     
     const contacts = contactsData.map(contact => <h2 key={contact.firstName + contact.lastName}>{contact.firstName} {contact.lastName}</h2>)
