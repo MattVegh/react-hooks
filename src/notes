@@ -9,3 +9,4 @@ Create custom hooks to reuse code across your app
 current hooks: useState, useEffect, useContext, useRef, useReducer, useMemo, useCallback, useImperativeHandle,
     useLayoutEffect, useDebugValue
 
+useEffect() replaces componentDidMount, componentDidUpdate, and componentWillUnmount
