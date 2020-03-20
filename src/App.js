@@ -5,6 +5,7 @@ import randomcolor from 'randomcolor'
 function App() {
   const [answer, setAnswer] = useState('Yes')
   const [count, setCount] = useState(0)
+  const [color, setColor] = useState('')
 
   function reduce() {
     setCount(count - 1)
@@ -15,7 +16,7 @@ function App() {
   }
 
   useEffect(() => {
-
+    setColor(randomcolor())
   })
 
   return (
