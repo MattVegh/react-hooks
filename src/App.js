@@ -17,14 +17,14 @@ function App() {
 
   useEffect(() => {
     setColor(randomcolor())
-  })
+  }, [count])
 
   return (
     <div>
       <h1>Is state important to know? {answer}</h1>
       <button onClick={changeAnswer}>{answer === 'Yes' ? 'No ' : 'Yes'}</button>
       
-      <h1>{count}</h1>
+      <h1 style={{color: color}}>{count}</h1>
       <button onClick={() => setCount(count+1)}>Add!</button>
       <button onClick={reduce}>Reduce!</button>
       <AddressBook />
