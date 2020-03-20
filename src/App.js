@@ -1,5 +1,6 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import AddressBook from './AddressBook'
+import randomcolor from 'randomcolor'
 
 function App() {
   const [answer, setAnswer] = useState('Yes')
@@ -12,6 +13,10 @@ function App() {
   function changeAnswer() {
     setAnswer(answer === 'Yes' ? 'No ' : 'Yes')
   }
+
+  useEffect(() => {
+
+  })
 
   return (
     <div>
