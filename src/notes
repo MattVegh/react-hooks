@@ -10,3 +10,5 @@ current hooks: useState, useEffect, useContext, useRef, useReducer, useMemo, use
     useLayoutEffect, useDebugValue
 
 useEffect() replaces componentDidMount, componentDidUpdate, and componentWillUnmount
+    Allows us to use side effects. 
+    Some side effects: network request, manual DOM manipulation, event listeners, timeouts, intervals
