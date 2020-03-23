@@ -16,10 +16,11 @@ function App() {
   }
 
   useEffect(() => {
-    // setInterval(() => {
-    //   setCount(prevCount => prevCount + 1)
-    // }, 1000)
-  }, [])
+    const intervalId = setInterval(() => {
+        setCount(prevCount => prevCount + 1)
+    }, 3000)
+    return () => clearInterval(intervalId)
+}, [])
 
   useEffect(() => {
     setColor(randomcolor())
