@@ -22,9 +22,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    
     setColor(randomcolor())
-    
   }, [count])
 
   //random color on load, never changes
