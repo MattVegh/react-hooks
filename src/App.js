@@ -15,15 +15,22 @@ function App() {
     setAnswer(answer === 'Yes' ? 'No ' : 'Yes')
   }
 
-  //random color on every count change
-  // useEffect(() => {
-  //   setColor(randomcolor())
-  // }, [count])
+  useEffect(() => {
+    // setInterval(() => {
+    //   setCount(prevCount => prevCount + 1)
+    // }, 1000)
+  }, [])
+
+  useEffect(() => {
+    
+    setColor(randomcolor())
+    
+  }, [count])
 
   //random color on load, never changes
-  useEffect(() => {
-    setColor(randomcolor())
-  }, [])
+  // useEffect(() => {
+  //   setColor(randomcolor())
+  // }, [])
 
   return (
     <div>
