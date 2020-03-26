@@ -7,6 +7,9 @@ function App() {
   const [count, setCount] = useState(0)
   const [color, setColor] = useState('')
 
+  const [newTodoValue, setNewTodoValue] = useState("")
+  const [todosList, setTodosList] = useState([])
+
   function reduce() {
     setCount(count - 1)
   }
@@ -17,10 +20,10 @@ function App() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-        setCount(prevCount => prevCount + 1)
+      setCount(prevCount => prevCount + 1)
     }, 3000)
     return () => clearInterval(intervalId)
-}, [])
+  }, [])
 
   useEffect(() => {
     setColor(randomcolor())
@@ -31,15 +34,34 @@ function App() {
   //   setColor(randomcolor())
   // }, [])
 
+
+  function handleChange(event) {
+    setNewTodoValue(event.target.value)
+  }
+
+  function addTodo(event) {
+    event.preventDefault()
+    setTodosList(prevTodosList => [...prevTodosList, newTodoValue])
+    setNewTodoValue("")
+  }
+
+  const allTodos = todosList.map(todo => <p key={todo}>{todo}</p>)
+
   return (
     <div>
       <h1>Is state important to know? {answer}</h1>
       <button onClick={changeAnswer}>{answer === 'Yes' ? 'No ' : 'Yes'}</button>
-      
-      <h1 style={{color: color}}>{count}</h1>
-      <button onClick={() => setCount(count+1)}>Add!</button>
+
+      <h1 style={{ color: color }}>{count}</h1>
+      <button onClick={() => setCount(count + 1)}>Add!</button>
       <button onClick={reduce}>Reduce!</button>
       <AddressBook />
+
+      <form>
+        <input type="text" name="todo" value={newTodoValue} onChange={handleChange} />
+        <button onClick={addTodo}>Add todo item</button>
+      </form>
+      {allTodos}
     </div>
   )
 }
