@@ -13,3 +13,4 @@ useEffect() replaces componentDidMount, componentDidUpdate, and componentWillUnm
     Allows us to use side effects. 
     Some side effects: network request, manual DOM manipulation, event listeners, timeouts, intervals
     "return" in useEffect acts as componentWillUnmount
+    
