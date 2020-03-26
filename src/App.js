@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import AddressBook from './AddressBook'
 import randomcolor from 'randomcolor'
 
@@ -6,6 +6,8 @@ function App() {
   const [answer, setAnswer] = useState('Yes')
   const [count, setCount] = useState(0)
   const [color, setColor] = useState('')
+
+  const inputRef = useRef(null)
 
   const [newTodoValue, setNewTodoValue] = useState("")
   const [todosList, setTodosList] = useState([])
@@ -21,7 +23,7 @@ function App() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCount(prevCount => prevCount + 1)
-    }, 3000)
+    }, 6000)
     return () => clearInterval(intervalId)
   }, [])
 
@@ -43,6 +45,8 @@ function App() {
     event.preventDefault()
     setTodosList(prevTodosList => [...prevTodosList, newTodoValue])
     setNewTodoValue("")
+    console.log(inputRef)
+    inputRef.current.focus()
   }
 
   const allTodos = todosList.map(todo => <p key={todo}>{todo}</p>)
@@ -57,8 +61,9 @@ function App() {
       <button onClick={reduce}>Reduce!</button>
       <AddressBook />
 
+      
       <form>
-        <input type="text" name="todo" value={newTodoValue} onChange={handleChange} />
+        <input ref={inputRef} type="text" name="todo" value={newTodoValue} onChange={handleChange} />
         <button onClick={addTodo}>Add todo item</button>
       </form>
       {allTodos}

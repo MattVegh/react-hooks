@@ -32,7 +32,6 @@ function AddressBook() {
         setContactsData([])
     }
 
-    console.log(contactsData)
     return (
         <>
             <form onSubmit={handleSubmit}>
