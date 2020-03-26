@@ -40,7 +40,6 @@ function App() {
   //   setColor(randomcolor())
   // }, [])
 
-
   function handleChange(event) {
     setNewTodoValue(event.target.value)
   }
@@ -65,7 +64,6 @@ function App() {
       <button onClick={reduce}>Reduce!</button>
       <AddressBook />
 
-      
       <form>
         <input ref={inputRef} type="text" name="todo" value={newTodoValue} onChange={handleChange} />
         <button onClick={addTodo}>Add todo item</button>
