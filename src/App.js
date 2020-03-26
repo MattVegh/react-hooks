@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef } from "react"
 import AddressBook from './AddressBook'
 import randomcolor from 'randomcolor'
+import useCounter from './useCounter'
 
 function App() {
+
+  const { count, increment, reduce } = useCounter()
+
   const [answer, setAnswer] = useState('Yes')
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
   const [color, setColor] = useState('')
 
   const inputRef = useRef(null)
@@ -12,20 +16,20 @@ function App() {
   const [newTodoValue, setNewTodoValue] = useState("")
   const [todosList, setTodosList] = useState([])
 
-  function reduce() {
-    setCount(count - 1)
-  }
+  // function reduce() {
+  //   setCount(count - 1)
+  // }
 
   function changeAnswer() {
     setAnswer(answer === 'Yes' ? 'No ' : 'Yes')
   }
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCount(prevCount => prevCount + 1)
-    }, 6000)
-    return () => clearInterval(intervalId)
-  }, [])
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setCount(prevCount => prevCount + 1)
+  //   }, 6000)
+  //   return () => clearInterval(intervalId)
+  // }, [])
 
   useEffect(() => {
     setColor(randomcolor())
@@ -57,7 +61,7 @@ function App() {
       <button onClick={changeAnswer}>{answer === 'Yes' ? 'No ' : 'Yes'}</button>
 
       <h1 style={{ color: color }}>{count}</h1>
-      <button onClick={() => setCount(count + 1)}>Add!</button>
+      <button onClick={increment}>Add!</button>
       <button onClick={reduce}>Reduce!</button>
       <AddressBook />
 
